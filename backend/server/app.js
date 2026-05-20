@@ -17,7 +17,19 @@ const recommendationRoutes = require("./routes/recommendationRoutes");
 const app = express();
 
 app.use(cors({
-  origin: "https://stylepilot-tau.vercel.app",
+  origin: function (origin, callback) {
+    const allowed = [
+      "https://stylepilot-tau.vercel.app",
+      "http://localhost:5173"
+    ];
+
+    if (!origin || allowed.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Blocked by CORS"));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
 
