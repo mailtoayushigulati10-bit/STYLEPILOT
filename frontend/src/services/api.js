@@ -1,7 +1,7 @@
 import axios from "axios";
 import toast from "react-hot-toast";
 
-export const API_BASE = "http://localhost:5000";
+export const API_BASE = import.meta.env.VITE_API_URL;
 
 const api = axios.create({ baseURL: API_BASE });
 
@@ -14,11 +14,15 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   (r) => r,
   (err) => {
-    const msg = err?.response?.data?.message || err.message || "Request failed";
+    const msg =
+      err?.response?.data?.message || err.message || "Request failed";
+
     toast.error(msg);
+
     if (err?.response?.status === 401) {
       localStorage.removeItem("sp_token");
     }
+
     return Promise.reject(err);
   }
 );
