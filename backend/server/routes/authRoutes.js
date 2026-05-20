@@ -1,29 +1,14 @@
 const express = require("express");
-
 const router = express.Router();
 
-
-
+// IMPORT CONTROLLERS (THIS WAS MISSING)
 const {
-
   register,
-
-  verifyOTP,
-
-  login
-
+  login,
 } = require("../controllers/authController");
 
-
-
 // ROUTES
-
 router.post("/register", register);
-
-router.post("/verify-otp", verifyOTP);
-
 router.post("/login", login);
-
-
 
 module.exports = router;
