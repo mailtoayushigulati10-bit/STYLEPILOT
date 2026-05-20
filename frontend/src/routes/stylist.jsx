@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Shell } from "./dashboard";
-import UploadCard from "../components/UploadCard";
+import UploadCard from "../components/UploadCard.jsx";
 import BudgetSlider from "../components/BudgetSlider";
 import OccasionSelector from "../components/OccasionSelector";
 import GlowButton from "../components/GlowButton";
