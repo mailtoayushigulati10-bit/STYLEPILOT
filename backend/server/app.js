@@ -17,7 +17,7 @@ const recommendationRoutes = require("./routes/recommendationRoutes");
 const app = express();
 
 app.use(cors({
-  origin: "https://stylepilot-tau.vercel.app",
+  origin: "https://stylepilot-tau.vercel.app/",
   credentials: true
 }));
 
